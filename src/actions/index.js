@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const SECURELY_HIDDEN_VARIABLE = "2cc0fa9147b4cdf41c822e4a4ebca905";
-const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${API_KEY}`;
+const ROOT_URL = `http://api.openweathermap.org/data/2.5/forecast?appid=${SECURELY_HIDDEN_VARIABLE}`;
 
 export const FETCH_WEATHER = `FETCH_WEATHER`;
 
