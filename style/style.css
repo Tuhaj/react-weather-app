@@ -1,0 +1,12 @@
+.input-group {
+  margin: 20px 0px;
+}
+
+table.table-hover th, table.table-hover td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+table.table-hover svg {
+  height: 150px;
+}
