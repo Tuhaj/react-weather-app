@@ -10,3 +10,8 @@ table.table-hover th, table.table-hover td {
 table.table-hover svg {
   height: 150px;
 }
+
+tr > td, tr > td > div {
+  height: 200px;
+  width: 250px;
+}
