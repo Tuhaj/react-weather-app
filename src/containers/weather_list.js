@@ -5,20 +5,26 @@ import Chart from '../components/chart';
 class WeatherList extends Component {
   constructor(props) {
     super(props);
+    this.renderWeather = this.renderWeather.bind(this);
   }
+
+  mapKToDegreesC(kelvins) {
+    return _.map(kelvins, (temp) => temp - 273);
+  }
+
   renderWeather(cityData) {
     const name = cityData.city.name,
           list = cityData.list,
-          temperatures = list.map(weather => weather.main.temp),
-          pressures = list.map(weather => weather.main.humidity),
-          humidities = list.map(weather => weather.main.pressure);
+          temperatures = this.mapKToDegreesC(list.map(weather => weather.main.temp)),
+          pressures = list.map(weather => weather.main.pressure),
+          humidities = list.map(weather => weather.main.humidity);
 
     return(
       <tr key={name}>
         <td>{name}</td>
-        <td><Chart data={temperatures} color={"orange"} /></td>
-        <td><Chart data={humidities} color={"green"} /></td>
-        <td><Chart data={temperatures} color={"blue"} /></td>
+        <td><Chart data={temperatures} color={"orange"} units="°C" /></td>
+        <td><Chart data={pressures} color={"green"} units="hPa" /></td>
+        <td><Chart data={humidities} color={"blue"} units="%" /></td>
       </tr>
     )
   }
@@ -30,7 +36,7 @@ class WeatherList extends Component {
           <thead>
             <tr>
               <th>City</th>
-              <th>Temperature (K)</th>
+              <th>Temperature (°C)</th>
               <th>Pressure (hPa)</th>
               <th>Humidity (%)</th>
             </tr>
