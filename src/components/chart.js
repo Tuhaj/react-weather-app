@@ -3,10 +3,8 @@ import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 export default (props) => {
   return (
-    <div>
-      <Sparklines width={200} height={120} data={props.data}>
-        <SparklinesLine color={props.color} />
-      </Sparklines>
-    </div>
+    <Sparklines height={120} width={180} data={props.data}>
+      <SparklinesLine color={props.color} />
+    </Sparklines>
   );
 }
